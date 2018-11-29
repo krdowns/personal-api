@@ -27,8 +27,8 @@ const profileSchema = new Schema({
       default: ""
     },
     pets: {
-      type: String,
-      default: ""
+      type: Number,
+      default: 0
     }
   });
 
