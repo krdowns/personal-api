@@ -1,6 +1,7 @@
 // require express and other modules
 const express = require('express');
 const app = express();
+const db = require('./models');
 
 // parse incoming urlencoded form data
 // and populate the req.body object
