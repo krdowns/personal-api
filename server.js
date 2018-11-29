@@ -23,6 +23,13 @@ app.use(function(req, res, next) {
 
 const db = require('./models');
 
+/************
+ *   DATA   * 
+ ************/
+
+var newQuoteUUID = 18;
+
+
 /**********
  * ROUTES *
  **********/
@@ -45,22 +52,124 @@ app.get('/', function homepage(req, res) {
  */
 
 app.get('/api', (req, res) => {
-  // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
-  // It would be seriously overkill to save any of this to your database.
-  // But you should change almost every line of this response.
+
   res.json({
-    woopsIForgotToDocumentAllMyEndpoints: true, // CHANGE ME ;)
-    message: "Welcome to my personal api! Here's what you need to know!",
-    documentationUrl: "https://github.com/example-username/express-personal-api/README.md", // CHANGE ME
-    baseUrl: "http://YOUR-APP-NAME.herokuapp.com", // CHANGE ME
+    message: "Welcome to my personal api!",
+    documentationUrl: "https://github.com/krdowns/personal-api/blob/master/README.md",
+    baseUrl: "https://fierce-gorge-11749.herokuapp.com/",
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "About Me"}, 
+      {method: "GET", path: "/api/quotes", description: "Retrieve All Available Quotes"},
+      {method: "POST", path: "/api/quotes", description: "Create New Quote"},
+      {method: "PUT", path: "/api/quotes/:id", description: "Edit a particular quote and update"},
+      {method: "DELETE", path: "/api/quotes/:id", description: "Delete a quote"}
     ]
   })
 });
 
+// define a root route: localhost:3000/
+app.get('/', function (req, res) {
+    res.sendFile('views/index.html', {
+      root: __dirname
+    });
+  });
+
+
+// GET ALL QUOTES
+app.get('/api/quotes', function(req, res) {
+  // send all quotes as a json response
+  db.Quote.find({}, (err, quotes) => {
+    if (err) {return console.log(err)}
+    res.json(quotes);
+  });
+  // populate fills in the character id with all the character data
+    // .populate('character')
+    // .exec(function(err, quotes){
+    //   if (err) { return console.log(`index error: ${err}`); }
+    //   console.log(quotes);
+    //   res.json(quotes);
+    // })
+});
+
+// GET ONE QUOTE
+app.get('/api/quotes/:id', function(req,res) {
+    // get book id from url params(`req.params`)
+    let quoteId = req.params.id;
+    console.log(quoteId);
+  
+    // find book in db by id
+    db.Quote.findOne({_id: quoteId }, (err, foundQuote) => {
+      if(err) {return console.log(err)}
+      res.json(foundQuote);
+    });
+  });
+
+// CREATE QUOTE
+app.post('/api/quotes', (req , res) => {
+    // create a temp variable with form data (`req.body`)
+    let newQuote = new db.Quote({
+      quote: req.body.quote,
+      character: req.body.quote,
+      episode: req.body.episode,
+    });
+  
+    //this code will only add an author to a quote if the character already exists
+    db.Character.findOne({name: req.body.character}, function(err, author){
+      newQuote.character = character;
+      newQuote.save(function(err, quote){
+        if (err) {
+          console.log(`create error: ${err}`);
+        } 
+        console.log("created ", quote.quote);
+        res.json(quote);
+      });
+    });
+  });
+  
+//   app.get('/api/characters', (req, res) => {
+//     db.Character.find({}, (err, characters) => {
+//       if(err) {
+//         console.log(`create error: ${err}`);
+//       }
+//       console.log("created ", quote.character);
+//       res.json(characters);
+//     })
+//   });
+
+  // UPDATE QUOTE
+app.put('/api/quotes/:id', (req,res) => {
+    // get quote id from url params (`req.params`)
+    let quoteId = req.params.id;
+    // get update body from req.body
+    let updateBody = req.body;
+    
+    console.log(updateBody);
+  
+    // find and update the quote's attributes
+    db.Quote.findOneAndUpdate(
+      { _id: quoteId }, // search condition
+      updateBody, // new content you want to update
+      {new:true}, // you want to receive the new object
+      (err, updatedQuote) => { // callback function
+      if(err) return console.log(err)
+      res.json(updatedQuote);
+      });
+  });
+
+  // DELETE QUOTE
+app.delete('/api/quotes/:id', (req,res) => {
+    // get quote id from url params (`req.params`)
+    let quoteId = req.params.id;
+  
+    // find qipte in db by id and delete
+    db.Quote.deleteOne(
+      { _id: quoteId },
+      (err, deletedQuote) => {
+        if(err) {return console.log(err)}
+        res.json(deletedQuote);
+    });
+  });
 /**********
  * SERVER *
  **********/
