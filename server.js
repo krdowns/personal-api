@@ -27,8 +27,6 @@ const db = require('./models');
  *   DATA   * 
  ************/
 
-var newQuoteUUID = 18;
-
 
 /**********
  * ROUTES *
@@ -145,9 +143,11 @@ app.post('/api/quotes', (req , res) => {
     // create a temp variable with form data (`req.body`)
     let newQuote = new db.Quote({
       quote: req.body.quote,
-      character: req.body.quote,
-      episode: req.body.episode,
+      character: req.body.character,
+      image: req.body.image,
+      episode: req.body.episode
     });
+    res.json(newQuote);
   });
 
 

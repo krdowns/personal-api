@@ -5,22 +5,38 @@ $(document).ready(function () {
     e.preventDefault();
 
 
+    //   $.ajax({
+    //     method: 'GET',
+    //     url: '/api/quotes',
+    //     success: handleSuccess,
+    //     error: handleError
+    //   });
+    // });
+
+
+    //   function handleSuccess(json) {
+    //     $('#quoteTarget').append(json);
+    //  }
+
     $.ajax({
-      method: 'GET',
       url: '/api/quotes',
-      success: handleSuccess,
-      error: handleError
+      method: 'GET',
+      success: function (res) {
+        $.each(res, function (key, val) {
+          console.log(val.quote);
+          $("#quoteTarget").append(`<li>${val.quote} - ${val.character} - ${val.episode}</li>`);
+
+        });
+      },
+      error: function (res) {
+        alert('Oh No!');
+      }
     });
   });
-
-
-  function handleSuccess(json) {
-    allQuotes = json;
-    $('#quoteTarget').append(json);
- }
-
-  function handleError(e) {
-    console.log('uh oh');
-    $('#quoteTarget').text('Failed to load quotes, is the server working?');
-  }
 });
+
+//   function handleError(e) {
+//     console.log('uh oh');
+//     $('#quoteTarget').text('Failed to load quotes, is the server working?');
+//   }
+// });

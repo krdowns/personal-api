@@ -15,14 +15,6 @@
 </head>
 
 <body>
-    <div class="nav-container">
-        <nav>
-            <a href="#">Management</a>
-            <a href="#">Sales</a>
-            <a href="#">Accounting</a>
-            <a href="#">Other</a>
-        </nav>
-    </div>
     <section class="header">
         <h1>The Office Quotes Database</h1>
     </section>
@@ -37,11 +29,18 @@
                     <label for="title">Character</label>
                     <input type="text" class="form-control" name="character" placeholder="Enter Character Here">
                 </div>
+                <div class="form-group character-input">
+                    <label for="title">Episode</label>
+                    <input type="text" class="form-control" name="episode" placeholder="Enter Episode Here">
+                </div>
                 <div class="submit-btn">
-                    <button type="submit" class="btn btn-default">Create Quote</button>
+                    <button type="submit" class="btn btn-default">Retrieve Quotes</button>
                 </div>
             </form>
             <div id='quoteTarget'>
+                <ul>
+
+                </ul>
             </div>
         </div>
     </div>
