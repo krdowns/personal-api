@@ -1,10 +1,11 @@
 body {
     background-color: #C0C0B6;
 }
+
 .landing-pg {
     background-image: url('/images/home-background.jpg');
     background-repeat: no-repeat;
-    height: 640px;
+    height: 840px;
     width: 100.55%;
     margin-left: 0;
     margin-right: 1em;
@@ -31,7 +32,10 @@ label {
     line-height: 2em;
 }
 
-.quote-input, .character-input, .episode-input, .image-input {
+.quote-input,
+.character-input,
+.episode-input,
+.image-input {
     margin-left: 3.25em;
 }
 
@@ -43,14 +47,14 @@ input {
 }
 
 ::placeholder {
-    padding:.5em;
+    padding: .5em;
     font-family: 'Shadows Into Light', cursive;
     font-weight: 600;
     font-size: 1.25em;
 }
 
 input[type="text"] {
-    padding:.5em;
+    padding: .5em;
     font-family: 'Shadows Into Light', cursive;
     font-weight: 600;
     font-size: 1.25em;
@@ -106,7 +110,7 @@ li {
     color: blue;
     font-weight: 600;
     list-style: none;
-    margin-top:;
+    margin-top: ;
     width: 75%;
     font-family: 'Shadows Into Light', cursive;
     font-size: 20px;
