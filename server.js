@@ -94,7 +94,7 @@ var profile = [{
       {
       name: 'Lucky',
       type: 'Cat',
-      breed: 'Tortoise'
+      breed: 'Tortoiseshell'
       },
       {
       name: 'Binx',
@@ -105,13 +105,10 @@ var profile = [{
 
 }];
 
+// GET PROFILE
 app.get('/api/profile', (req, res) => {
   res.json(profile);
 });
-
-
-
-
 
 
 // GET ALL QUOTES
