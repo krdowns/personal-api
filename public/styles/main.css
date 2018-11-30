@@ -1,7 +1,86 @@
 body {
     background-image: url('/images/home-background.jpg');
-    background-size: cover;
     background-repeat: no-repeat;
     height: 640px;
+    width: 100vw;
+    margin-right: 1em;
+}
+
+nav {
+    color: white;
+    font-family: helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-left: -1em;
+    text-decoration: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 1em;
+    border-right: 1px solid white;
+    padding-right: 1em;
+    padding-left: 1em;
+    text-align: center;
+    font-family: helvetica, sans-serif;
+    font-weight: bold;
+}
+
+h1 {
+    color: white;
+    font-family: 'Special Elite', cursive;
+    font-size: 64px;
+    font-weight: 200;
+    text-decoration: underline;
+}
+
+.row {}
+
+/* .form-inline {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: space-between;
+} */
+
+.form-group {
+    width: 50%;
+}
+
+label {
+    color: white;
+    font-family: "helvetica neue", sans-serif;
+    font-weight: bold;
+    line-height: 2em;
+}
+
+.quote-input {
+    margin-left: 2em;
+}
+
+.character-input {
+    margin-left: 2em;
+}
+
+input {
+    border: none;
+    height: 2em;
+    margin-left: 1em;
+    margin-right: 2em;
     width: 100%;
+}
+
+label {
+    margin-left: 1em;
+}
+
+button {
+    border: none;
+    height: 2em;
+    margin-left: 3.4em;
+    width: 50%;
+    margin-top: 2em;
+    font-family: Tahoma, Verdana, sans-serif;
 }

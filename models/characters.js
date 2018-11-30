@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const mongoose = require('mongoose');
+// const Schema = mongoose.Schema;
 
-const characterSchema = new Schema({
+// const characterSchema = new Schema({
 
-    name: String,
+//     name: String,
 
-    seasons: String,
+//     seasons: String,
 
-    image: String
-});
+//     image: String
+// });
 
-const Character = mongoose.model('Character', characterSchema);
-module.exports = Character;
+// const Character = mongoose.model('Character', characterSchema);
+// module.exports = Character;

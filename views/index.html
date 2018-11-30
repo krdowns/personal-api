@@ -7,14 +7,44 @@
     <title>Personal API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
     <script src="scripts/app.js" defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="nav-container">
+        <nav>
+            <a href="#">Management</a>
+            <a href="#">Sales</a>
+            <a href="#">Accounting</a>
+            <a href="#">Other</a>
+        </nav>
+    </div>
     <section class="header">
-        <h1>Office Quotes Database</h1>
+        <h1>The Office Quotes Database</h1>
     </section>
-
+    <div class="row">
+        <div class="form-conatiner">
+            <form class="form-inline" id="newQuoteForm">
+                <div class="form-group quote-input">
+                    <label for="title">Quote</label>
+                    <input type="text" class="form-control" name="Quote" placeholder="Enter Quote Here">
+                </div>
+                <div class="form-group character-input">
+                    <label for="title">Character</label>
+                    <input type="text" class="form-control" name="character" placeholder="Enter Character Here">
+                </div>
+                <div class="submit-btn">
+                    <button type="submit" class="btn btn-default">Create Quote</button>
+                </div>
+            </form>
+            <div id='quoteTarget'>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

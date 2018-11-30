@@ -68,12 +68,50 @@ app.get('/api', (req, res) => {
   })
 });
 
+
+
 // define a root route: localhost:3000/
 app.get('/', function (req, res) {
     res.sendFile('views/index.html', {
       root: __dirname
     });
   });
+
+
+// PROFILE API
+
+var profile = [{
+
+  name: 'Kenny',
+
+  githubUsername: 'krdowns',
+
+  githubLink: 'https://github.com/krdowns',
+
+  currentCity: 'San Francisco',
+
+  pets: [
+      {
+      name: 'Lucky',
+      type: 'Cat',
+      breed: 'Tortoise'
+      },
+      {
+      name: 'Binx',
+      type: 'Cat',
+      breed: 'Tuxedo'
+      }
+  ]
+
+}];
+
+app.get('/api/profile', (req, res) => {
+  res.json(profile);
+});
+
+
+
+
 
 
 // GET ALL QUOTES
@@ -113,29 +151,8 @@ app.post('/api/quotes', (req , res) => {
       character: req.body.quote,
       episode: req.body.episode,
     });
-  
-    //this code will only add an author to a quote if the character already exists
-    db.Character.findOne({name: req.body.character}, function(err, author){
-      newQuote.character = character;
-      newQuote.save(function(err, quote){
-        if (err) {
-          console.log(`create error: ${err}`);
-        } 
-        console.log("created ", quote.quote);
-        res.json(quote);
-      });
-    });
   });
-  
-//   app.get('/api/characters', (req, res) => {
-//     db.Character.find({}, (err, characters) => {
-//       if(err) {
-//         console.log(`create error: ${err}`);
-//       }
-//       console.log("created ", quote.character);
-//       res.json(characters);
-//     })
-//   });
+
 
   // UPDATE QUOTE
 app.put('/api/quotes/:id', (req,res) => {
