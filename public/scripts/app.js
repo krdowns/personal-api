@@ -1,31 +1,31 @@
 console.log("Sanity Check: JS is working!");
 
 $(document).ready(function () {
-  $('form').on('submit', function (e) {
+
+  //CREATE QUOTE//
+  $('.add-btn').on('click', function (e) {
+      e.preventDefault();
+
+    $.ajax({
+      url: '/api/quotes',
+      method: 'POST',
+      data: JSON.stringify($(this).parent()),
+      success: function(res) {
+        $('#quoteTarget').append(`<li><img src="#"><br> ${res.quote}<br> - ${res.episode}</li>`);  
+      }
+    });  
+  });
+
+  //RETREIVE QUOTES//
+  $('.retrieve-btn').one('click', function (e) {
     e.preventDefault();
-
-
-    //   $.ajax({
-    //     method: 'GET',
-    //     url: '/api/quotes',
-    //     success: handleSuccess,
-    //     error: handleError
-    //   });
-    // });
-
-
-    //   function handleSuccess(json) {
-    //     $('#quoteTarget').append(json);
-    //  }
 
     $.ajax({
       url: '/api/quotes',
       method: 'GET',
       success: function (res) {
         $.each(res, function (key, val) {
-          console.log(val.quote);
-          $("#quoteTarget").append(`<li>${val.quote} - ${val.character} - ${val.episode}</li>`);
-
+          $("#quoteTarget").append(`<li><img src="${val.image}"><br>  ${val.quote}<br> - ${val.episode}</li>`);
         });
       },
       error: function (res) {
@@ -33,10 +33,23 @@ $(document).ready(function () {
       }
     });
   });
-});
 
-//   function handleError(e) {
-//     console.log('uh oh');
-//     $('#quoteTarget').text('Failed to load quotes, is the server working?');
-//   }
-// });
+  //UPDATE QUOTES//
+
+  //DELETE QUOTES//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});

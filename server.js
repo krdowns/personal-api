@@ -1,7 +1,7 @@
 // require express and other modules
 const express = require('express');
 const app = express();
-
+const db = require('./models');
 
 // parse incoming urlencoded form data
 // and populate the req.body object
@@ -16,17 +16,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
-/************
- * DATABASE *
- ************/
-
-const db = require('./models');
-
-/************
- *   DATA   * 
- ************/
-
 
 /**********
  * ROUTES *

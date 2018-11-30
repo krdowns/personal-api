@@ -1,32 +1,14 @@
 body {
+    background-color: #C0C0B6;
+}
+.landing-pg {
     background-image: url('/images/home-background.jpg');
     background-repeat: no-repeat;
     height: 640px;
-    width: 100vw;
+    width: 100.55%;
+    margin-left: 0;
     margin-right: 1em;
-}
-
-nav {
-    color: white;
-    font-family: helvetica, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: left;
-    background-color: rgba(0, 0, 0, 0.5);
-    margin-left: -1em;
-    text-decoration: none;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 1em;
-    border-right: 1px solid white;
-    padding-right: 1em;
-    padding-left: 1em;
-    text-align: center;
-    font-family: helvetica, sans-serif;
-    font-weight: bold;
+    margin-bottom: 2.5em;
 }
 
 h1 {
@@ -35,15 +17,8 @@ h1 {
     font-size: 64px;
     font-weight: 200;
     text-decoration: underline;
+    margin-left: .75em;
 }
-
-.row {}
-
-/* .form-inline {
-    display: flex;
-    flex-direction: row wrap;
-    justify-content: space-between;
-} */
 
 .form-group {
     width: 50%;
@@ -56,31 +31,91 @@ label {
     line-height: 2em;
 }
 
-.quote-input {
-    margin-left: 2em;
-}
-
-.character-input {
-    margin-left: 2em;
+.quote-input, .character-input, .episode-input, .image-input {
+    margin-left: 3.25em;
 }
 
 input {
     border: none;
     height: 2em;
-    margin-left: 1em;
     margin-right: 2em;
     width: 100%;
 }
 
+::placeholder {
+    padding:.5em;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 600;
+    font-size: 1.25em;
+}
+
+input[type="text"] {
+    padding:.5em;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: 600;
+    font-size: 1.25em;
+}
+
+
+
 label {
-    margin-left: 1em;
+    border-bottom: 1px solid white;
+}
+
+.or {
+    margin-left: 28.25%;
+    font-weight: 900;
+    font-family: helvetica;
+    margin-top: -1em;
+    margin-bottom: -1em;
 }
 
 button {
     border: none;
     height: 2em;
-    margin-left: 3.4em;
-    width: 50%;
+    margin-left: 4em;
+    width: 51.25%;
     margin-top: 2em;
     font-family: Tahoma, Verdana, sans-serif;
+    margin-bottom: 2em;
+}
+
+h2 {
+    padding-top: 5.25em;
+    margin-left: 6.5em;
+    color: blue;
+    font-family: 'Shadows Into Light', cursive;
+
+}
+
+.appended-quotes {
+    background-image: url('/images/list background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 101.55%;
+    margin-top: -2.5em;
+    margin-left: -1em;
+}
+
+ul:first-child {
+    margin-top: 1.5em;
+}
+
+li {
+    padding-top: 2em;
+    color: blue;
+    font-weight: 600;
+    list-style: none;
+    margin-top:;
+    width: 75%;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 20px;
+    margin-left: 8em;
+    line-height: 1.75em;
+}
+
+li img {
+    height: 80px;
+    border: transparent;
+    border-radius: 50%;
 }

@@ -8,41 +8,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
     <script src="scripts/app.js" defer></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <section class="header">
-        <h1>The Office Quotes Database</h1>
-    </section>
-    <div class="row">
-        <div class="form-conatiner">
+    <div class="landing-pg">
+        <section class="header">
+            <h1>The Office Quotes Database</h1>
+        </section>
+        <div class="form-container">
             <form class="form-inline" id="newQuoteForm">
                 <div class="form-group quote-input">
                     <label for="title">Quote</label>
-                    <input type="text" class="form-control" name="Quote" placeholder="Enter Quote Here">
+                    <input type="text" class="form-control quoteInput" name="Quote" placeholder="Enter Quote Here">
                 </div>
                 <div class="form-group character-input">
                     <label for="title">Character</label>
-                    <input type="text" class="form-control" name="character" placeholder="Enter Character Here">
+                    <input type="text" class="form-control characterInput" name="character" placeholder="Enter Character Here">
                 </div>
-                <div class="form-group character-input">
+                <div class="form-group episode-input">
                     <label for="title">Episode</label>
-                    <input type="text" class="form-control" name="episode" placeholder="Enter Episode Here">
+                    <input type="text" class="form-control episodeInput" name="episode" placeholder="Enter Episode Here">
                 </div>
-                <div class="submit-btn">
-                    <button type="submit" class="btn btn-default">Retrieve Quotes</button>
+                <div class="form-group image-input">
+                    <label for="title">Image</label>
+                    <input type="text" class="form-control imageInput" name="image" placeholder="Enter Character Image URL Here">
+                </div>
+                <div class="add-btn">
+                    <button type="submit" class="btn add-quotes btn-default">Add Quotes</button>
+                </div>
+                <p class="or">
+                    OR
+                </p>
+                <div class="retrieve-btn">
+                    <button type="submit" class="btn retrieve-quotes btn-default">Retrieve Quotes</button>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="appended-quotes">
+        <h2>QUOTES:</h2>
+        <section class="list-container">
             <div id='quoteTarget'>
                 <ul>
 
                 </ul>
             </div>
-        </div>
+        </section>
     </div>
 </body>
 
